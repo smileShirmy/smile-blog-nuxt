@@ -23,11 +23,21 @@ module.exports = {
   ** Global CSS
   */
   css: [
+    {
+      src: './assets/scss/index.scss',
+      lang: 'sass'
+    },
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {
+      src: '@/plugins/filter.js'
+    },
+    {
+      src: '@/plugins/global-component.js'
+    },
   ],
   /*
   ** Nuxt.js modules

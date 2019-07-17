@@ -1,0 +1,43 @@
+/* z-index
+-------------------------- */
+$index-normal: 1 !default;
+$index-top: 1000 !default;
+$index-popper: 2000 !default;
+
+/* font-weight
+-------------------------- */
+$font-weight-primary: 400 !default;
+$font-weight-secondary: 100 !default;
+$font-weight-bold: 700 !default;
+
+/* font-size
+-------------------------- */
+$font-size-extra-large: 20px !default;
+$font-size-large: 18px !default;
+$font-size-medium: 16px !default;
+$font-size-base: 14px !default;
+$font-size-small: 13px !default;
+$font-size-minimum: 11px !default;
+
+/* title-font-size
+-------------------------- */
+$title-font-size-extra-maximum: 54px !default;
+$title-font-size-maximum: 50px !default;
+$title-font-size-extra-large: 46px !default;
+$title-font-size-large: 36px !default;
+$title-font-size-medium: 30px !default;
+$title-font-size-base: 24px !default;
+$title-font-size-small: 20px !default;
+$title-font-size-extra-small: 16px !default;
+
+/* normal-color
+-------------------------- */
+$nav-dot-color: #d3d5dc;
+
+/* transition
+-------------------------- */
+$theme-transition: all .1s linear;
+
+/* font-family
+-------------------------- */
+$font-family-normal: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;

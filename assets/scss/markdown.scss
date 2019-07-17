@@ -1,0 +1,207 @@
+// markdown 样式
+
+.markdown {
+  font-size: 15px;
+
+  pre {
+    margin: .5em 0;
+    padding: 1em;
+    font-size: 85%;
+    border-radius: 5px;
+    background-color: var(--code-background);
+    overflow-x: auto;
+  }
+
+  code {
+    margin: 0 .2em;
+    padding: .1em .2em;
+    background-color: var(--code-background);
+    font-family: Roboto Mono, Monaco, courier, monospace;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 1em 0;
+    line-height: 1;
+  }
+
+  a {
+    margin: 0 .3em;
+    color: var(--link-color);
+  }
+
+  blockquote {
+    padding: 0 1em;
+    border-left: 0.25em solid var(--border-color);
+
+    p {
+      text-indent: 0rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  ul {
+    margin: 1em 0;
+    padding-left: 2em;
+
+    li {
+      padding: .3em;
+      list-style: disc;
+    }
+  }
+  
+
+  .image-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5em 0;
+    width: 100%;
+
+    .progress-image {
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      width: 100%;
+      padding: 0 1em;
+      cursor: zoom-in;
+
+      img {
+        border-radius: 4px;
+        transition: all .25s linear;
+      }
+
+      .thumbnail {
+        filter: blur(8px);  
+      }
+
+      .real-image {
+        box-sizing: border-box;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        padding: 0 1em;
+      }
+
+      .loaded {
+        opacity: 1;
+      }
+
+      .hidden {
+        opacity: 0;
+      }
+    }
+
+    .image-caption {
+      margin-top: 1em;
+      text-align: center;
+
+      > span {
+        display: inline-block;
+        padding: .1em .3em;
+        margin: 0 auto;
+        border-bottom: 1px solid var(--border-color);
+      }
+    }
+  }
+}
+
+.gutter pre {
+  color: #999;
+}
+
+// highlight.hljs-js 代码片段 样式
+
+pre {
+  .hljs-function .hljs-keyword,
+  .hljs-constant {
+    color: #0092db;
+  }
+  .hljs-keyword,
+  .hljs-attribute {
+    color: #e96900;
+  }
+  .hljs-number,
+  .hljs-literal {
+    color: #AE81FF;
+  }
+  .hljs-tag,
+  .hljs-tag .hljs-title,
+  .hljs-change,
+  .hljs-winutils,
+  .hljs-flow,
+  .hljs-lisp .hljs-title,
+  .hljs-clojure .hljs-built_in,
+  .hljs-nginx .hljs-title,
+  .hljs-tex .hljs-special {
+    color: #2973b7;
+  }
+  .hljs-class .hljs-title {
+    color: green;
+  }
+  .hljs-symbol,
+  .hljs-symbol .hljs-string,
+  .hljs-value,
+  .hljs-regexp {
+    color: #42b983;
+  }
+  .hljs-title {
+    color: #A6E22E;
+  }
+  .hljs-tag .hljs-value,
+  .hljs-string,
+  .hljs-subst,
+  .hljs-haskell .hljs-type,
+  .hljs-preprocessor,
+  .hljs-ruby .hljs-class .hljs-parent,
+  .hljs-built_in,
+  .hljs-sql .hljs-aggregate,
+  .hljs-django .hljs-template_tag,
+  .hljs-django .hljs-variable,
+  .hljs-smalltalk .hljs-class,
+  .hljs-javadoc,
+  .hljs-django .hljs-filter .hljs-argument,
+  .hljs-smalltalk .hljs-localvars,
+  .hljs-smalltalk .hljs-array,
+  .hljs-attr_selector,
+  .hljs-pseudo,
+  .hljs-addition,
+  .hljs-stream,
+  .hljs-envvar,
+  .hljs-apache .hljs-tag,
+  .hljs-apache .hljs-cbracket,
+  .hljs-tex .hljs-command,
+  .hljs-prompt {
+    color: #42b983;
+  }
+  .hljs-comment,
+  .hljs-java .hljs-annotation,
+  .hljs-python .hljs-decorator,
+  .hljs-template_comment,
+  .hljs-pi,
+  .hljs-doctype,
+  .hljs-deletion,
+  .hljs-shebang,
+  .hljs-apache .hljs-sqbracket,
+  .hljs-tex .hljs-formula {
+    color: #b3b3b3;
+  }
+  .hljs-coffeescript .hljs-javascript,
+  .hljs-javascript .hljs-xml,
+  .hljs-tex .hljs-formula,
+  .hljs-xml .hljs-javascript,
+  .hljs-xml .hljs-vbscript,
+  .hljs-xml .hljs-css,
+  .hljs-xml .hljs-cdata {
+    opacity: .5;
+  }
+}

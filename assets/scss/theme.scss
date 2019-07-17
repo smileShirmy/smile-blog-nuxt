@@ -1,0 +1,67 @@
+
+@mixin theme(
+  $theme-primary,
+  $font-color,
+  $font-color-article,
+  $font-color-light,
+  $font-color-dark,
+  $theme-active,
+  $link-color,
+  $border-color,
+  $tag-color,
+  $code-bg
+) {  
+  --app-background-color: #{$theme-primary};
+  --app-background-color-light: #{lighten($theme-primary, 3%)};
+
+  --primary-light-0: #{lighten($theme-primary, 5%)};
+
+  --font-color-primary: #{$font-color};
+  --font-color-article: #{$font-color-article};
+  --font-color-light: #{$font-color-light};
+  --font-color-dark: #{$font-color-dark};
+
+  --theme-active: #{$theme-active};
+  
+  --border-color: #{$border-color};
+  --tool-background-color: #{$border-color};
+
+  --tag-color: #{$tag-color};
+
+  --code-background: #{$code-bg};
+
+  --link-color: #{$link-color};
+}
+
+
+body {
+  &#light {
+    @include theme(
+      $theme-primary: #fff,
+      $font-color: #161b3d,
+      $font-color-article: #666,
+      $font-color-light: #999,
+      $font-color-dark: #161b3d,
+      $theme-active: #2821fc,
+      $link-color: #75bfd7,
+      $border-color: #dcdfe7,
+      $tag-color: #f4f4f4,
+      $code-bg: #f7f7f7,
+    )
+  }
+
+  &#dark {
+    @include theme(
+      $theme-primary: #282c35,
+      $font-color: #c0c0c0,
+      $font-color-article: #c0c0c0,
+      $font-color-light: #999,
+      $font-color-dark: #d3d3d3,
+      $theme-active: #75bfd7,
+      $link-color: #75bfd7,
+      $border-color: #545c6f,
+      $tag-color: #333844,
+      $code-bg: #21252c
+    )
+  }
+}

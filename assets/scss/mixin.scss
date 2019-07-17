@@ -1,0 +1,93 @@
+// 扩展点击区域
+@mixin extend-click {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+  }
+}
+
+@mixin cover {
+  position: relative;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    opacity: .35;
+    background-color: #394245;
+    background-image: linear-gradient(234deg, #394245 0%,#000 100%);
+  }
+}
+
+@mixin noCover {
+  background-color: var(--tag-color);
+  background-image: linear-gradient(20deg, var(--tag-color), var(--tag-color));
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: $index-normal;
+  box-sizing: border-box;
+
+  @media (max-width: 1399px) {
+    padding: 0 85px;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 0 45px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0 35px;
+  }
+
+  @media (max-width: 479px) {
+    padding: 0 15px;
+  }
+}
+
+@mixin headerPadding {
+  padding: 60px 200px;
+
+  @media (max-width: 1399px) {
+    padding: 40px 100px;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 30px 50px;
+  }
+
+  @media (max-width: 479px) {
+    padding: 10px 0;
+  }
+}
+
+@mixin articlePadding {
+  padding: 60px 200px 0;
+
+  @media (max-width: 1399px) {
+    padding: 40px 100px 0;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 30px 50px 0;
+  }
+
+  @media (max-width: 479px) {
+    padding: 10px 0 0;
+  }
+}
