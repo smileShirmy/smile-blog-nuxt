@@ -12,14 +12,13 @@ export const mutations = {
     state.total = total
   },
 
-  setMoreMessages(state, { messages, total }) {
+  setMoreMessages(state, { messages }) {
     state.messages = state.messages.concat(messages)
-    state.total = total
   },
 
   setLoading(state, loading = false) {
     state.loading = loading
-  }
+  },
 }
 
 export const actions = {
@@ -43,6 +42,10 @@ export const actions = {
       // eslint-disable-next-line no-console
       console.log(e)
     }
+  },
+
+  async createMessage({ commit, state }, params) {
+    return await message.createMessage(params)
   }
 }
 

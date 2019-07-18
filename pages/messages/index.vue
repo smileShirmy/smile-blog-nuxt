@@ -62,6 +62,14 @@ export default {
     }
   },
 
+  watch: {
+    messages() {
+      this.$nextTick(() => {
+        this.initImage()
+      })
+    }
+  },
+
   methods: {
     // markdown 解析
     marked(content) {
@@ -84,30 +92,28 @@ export default {
       })
     },
 
-    async onSend() {
-
+    async onSend({nickname, content}) {
+      try {
+        const res = await this.$store.dispatch('message/createMessage', {
+          nickname,
+          content
+        })
+        if (res && res.errorCode === 0) {
+          this.$refs.editor.resetField()
+          this.$store.dispatch('message/getMessages', {
+            page: 0
+          })
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(e)
+      }
     }
-
-    // async onSend({nickname, content}) {
-    //   try {
-    //     const res = await message.createMessage({
-    //       nickname,
-    //       content
-    //     })
-    //     if (res.errorCode === 0) {
-    //       this.$refs.editor.resetField()
-    //       this.getMessages()
-    //     }
-    //   } catch (e) {
-    //     // eslint-disable-next-line no-console
-    //     console.log(e)
-    //   }
-    // }
   },
 
-  // created() {
-  //   this.getMessages()
-  // }
+  mounted() {
+    this.initImage()
+  }
 }
 </script>
 
