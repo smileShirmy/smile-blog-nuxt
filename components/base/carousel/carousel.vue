@@ -22,7 +22,7 @@
 
 <script>
 import { throttle } from "throttle-debounce";
-import { on, off } from "@/services/utils/dom";
+import { on, off } from '@/services/utils/dom';
 
 export default {
   name: "Carousel",

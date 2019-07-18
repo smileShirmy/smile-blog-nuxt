@@ -13,7 +13,12 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    noscript: [
+      {
+        innerHTML: 'This website requires JavaScript.'
+      }
+    ],
   },
   /*
   ** Customize the progress-bar color
@@ -39,6 +44,10 @@ module.exports = {
       src: '@/plugins/global-component.js'
     },
   ],
+
+  server: {
+    port: 5000, // default: 3000
+  },
   /*
   ** Nuxt.js modules
   */

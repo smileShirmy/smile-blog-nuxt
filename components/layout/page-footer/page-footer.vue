@@ -1,5 +1,5 @@
 <template>
-  <footer class="container">
+  <footer class="footer-container">
     <div class="footer-wrapper">
       <a class="between">
         <switch-theme :size="'18px'"></switch-theme>
@@ -30,7 +30,7 @@ import DesktopNav from '@/components/base/nav/desktop-nav'
 
 const navList = [
   {
-    link: "/home",
+    link: "/",
     name: "首页"
   },
   {
@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/variables.scss";
 
-.container {
+.footer-container {
   display: flex;
   flex-direction: column;
   align-items: center;

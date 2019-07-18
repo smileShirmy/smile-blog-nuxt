@@ -1,7 +1,7 @@
  <template>
   <ul class="nav-list">
     <li class="nav-list-item" v-for="(item, index) in navList" :key="index">
-      <nuxt-link active-class="nav-active" class="nav-link" tag="a" :to="item.link">{{item.name}}</nuxt-link>
+      <nuxt-link class="nav-link" tag="a" :to="item.link">{{item.name}}</nuxt-link>
       <span class="nav-dot"></span>
     </li>
     <li class="nav-list-item">
@@ -56,7 +56,7 @@ export default {
       }
     }
 
-    .nav-active {
+    .nuxt-link-active {
       & ~ .nav-dot {
         background-color: var(--theme-active);
       }

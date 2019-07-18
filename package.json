@@ -10,11 +10,6 @@
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate"
   },
-  "config": {
-    "nuxt": {
-      "port": "5000"
-    }
-  },
   "dependencies": {
     "axios": "^0.19.0",
     "cross-env": "^5.2.0",

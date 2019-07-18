@@ -1,5 +1,5 @@
 <template>
-  <header class="container" :class="homeMobileClass">
+  <header class="header-container" :class="homeMobileClass">
     <div class="header-logo">
       <switch-theme :size="'30px'"></switch-theme>
       <i class="logo">Smile</i>
@@ -18,7 +18,7 @@ import SwitchTheme from '@/components/base/switch-theme/switch-theme'
 
 const navList = [
   {
-    link: "/home",
+    link: "/",
     name: "首页"
   },
   {
@@ -64,7 +64,7 @@ export default {
 @import "@/assets/scss/variables.scss";
 @import "@/assets/scss/mixin.scss";
 
-.container {
+.header-container {
   @include container;
   display: flex;
   justify-content: space-between;

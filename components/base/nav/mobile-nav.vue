@@ -18,7 +18,6 @@
         <ul class="nav-list">
           <li class="nav-list-item" v-for="(item, index) in navList" :key="index">
             <nuxt-link
-              active-class="nav-active"
               class="nav-link"
               tag="a"
               :to="item.link"
@@ -210,7 +209,7 @@ export default {
       }
     }
 
-    .nav-active {
+    .nuxt-link-active {
       & .nav-dot {
         background-color: var(--theme-active);
       }

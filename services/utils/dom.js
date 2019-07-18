@@ -1,5 +1,8 @@
+import Vue from 'vue';
+const isServer = Vue.prototype.$isServer;
+
 export const on = (function() {
-  if (document.addEventListener) {
+  if (!isServer && document.addEventListener) {
     return function(element, event, handler) {
       if (element && event && handler) {
         element.addEventListener(event, handler, false);
@@ -9,7 +12,7 @@ export const on = (function() {
 })()
 
 export const off = (function() {
-  if (document.removeEventListener) {
+  if (!isServer && document.removeEventListener) {
     return function(element, event, handler) {
       if (element && event && handler) {
         element.removeEventListener(event, handler, false);
