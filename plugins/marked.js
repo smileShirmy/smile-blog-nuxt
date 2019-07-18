@@ -76,8 +76,8 @@ const imageParse = (src, title, alt) => {
 renderer.image = imageParse
 
 export default (content) => {
-  if (typeof content === 'string') {
-    return marked(content)
+  if (typeof content !== 'string') {
+    return ''
   }
-  return ''
+  return marked(content, { renderer })
 }

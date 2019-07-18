@@ -8,8 +8,10 @@
       <li class="message-item" v-for="message in messages" :key="message.id">
         <span v-if="message.nickname" class="nickname">@{{message.nickname}}</span>
         <div class="content">
-          <p v-html="marked(message.content)">
-          </p>
+          <no-ssr>
+            <p v-html="marked(message.content)">
+            </p>
+          </no-ssr>
         </div>
         <time class="time" :datetime="message.createTime | filterTime">{{message.createTime | filterTime}}</time>
       </li>
@@ -63,9 +65,6 @@ export default {
   methods: {
     // markdown 解析
     marked(content) {
-      if (typeof content !== 'string') {
-        return ''
-      }
       return markdown(content)
     },
 
@@ -78,25 +77,6 @@ export default {
         page: this.page
       })
     },
-
-    // async getMessages() {
-    //   try {
-    //     this.loading = true
-    //     const res = await message.getMessages(this.page)
-    //     if (this.page > 0) {
-    //       this.messageList = this.messageList.concat(res.collection)
-    //     } else {
-    //       this.messageList = res.collection
-    //       this.total = res.total
-    //     }
-    //     this.initImage()
-    //     this.loading = false
-    //   } catch (e) {
-    //     this.loading = false
-    //     // eslint-disable-next-line no-console
-    //     console.log(e)
-    //   }
-    // },
 
     initImage() {
       import('../../services/utils/lazy-img').then(res => {
