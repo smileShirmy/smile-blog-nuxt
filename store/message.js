@@ -1,4 +1,4 @@
-import message from '../../models/message'
+import message from '../models/message'
 
 export const state = () => ({
   messages: [],

@@ -1,5 +1,5 @@
-import tag from '../../models/tag'
-import category from '../../models/category'
+import tag from '../models/tag'
+import category from '../models/category'
 
 export const state = () => ({
   tags: [],

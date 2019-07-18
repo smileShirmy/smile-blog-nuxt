@@ -1,5 +1,5 @@
-import article from '../../models/article'
-import Utils from '../../services/utils/util'
+import article from '../models/article'
+import Utils from '../services/utils/util'
 
 export const state = () => ({
   articles: [],

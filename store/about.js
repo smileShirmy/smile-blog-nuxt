@@ -1,4 +1,4 @@
-import author from '../../models/author'
+import author from '../models/author'
 
 export const state = () => ({
   authors: []
