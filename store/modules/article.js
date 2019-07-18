@@ -16,7 +16,7 @@ export const mutations = {
     state.starArticles = starArticles
   },
 
-  setMoreArticles(state, { articles, total}) {
+  setMoreArticles(state, { articles, total }) {
     state.articles = state.articles.concat(articles)
     state.total = total
   },

@@ -38,6 +38,12 @@ module.exports = {
   */
   plugins: [
     {
+      src: '~/plugins/marked.js'
+    },
+    {
+      src: '~/plugins/highlight.js'
+    },
+    {
       src: '@/plugins/filter.js'
     },
     {

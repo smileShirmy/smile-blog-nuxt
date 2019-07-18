@@ -209,7 +209,7 @@ export default {
       }
     }
 
-    .nuxt-link-active {
+    .nuxt-link-exact-active {
       & .nav-dot {
         background-color: var(--theme-active);
       }
