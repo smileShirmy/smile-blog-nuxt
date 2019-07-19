@@ -31,8 +31,6 @@ export default {
 
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-
 .empty-container {
   display: flex;
   flex-direction: column;

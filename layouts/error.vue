@@ -7,8 +7,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-
 .not-found-container {
   display: flex;
   flex-direction: column;

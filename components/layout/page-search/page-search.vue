@@ -142,8 +142,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-
 .search-container {
   display: flex;
   justify-content: space-between;

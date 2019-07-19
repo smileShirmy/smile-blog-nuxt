@@ -95,7 +95,9 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/style-resources',
   ],
+
   styleResources: {
     scss: ['./assets/scss/variables.scss', './assets/scss/mixin.scss']
   },

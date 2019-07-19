@@ -104,8 +104,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-
 .carousel-container {
   height: calc(100vh - 245px);
 

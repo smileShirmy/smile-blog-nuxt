@@ -11,6 +11,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/style-resources": "^0.1.2",
     "axios": "^0.19.0",
     "cross-env": "^5.2.0",
     "highlight.js": "^9.15.8",

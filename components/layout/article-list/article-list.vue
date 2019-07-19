@@ -74,9 +74,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
-@import "@/assets/scss/mixin.scss";
-
 .article-list-container {
   @include container;
   box-sizing: border-box;
@@ -294,7 +291,7 @@ export default {
     margin-bottom: 30px;
     box-shadow: none;
   }
-  
+
   @media (max-width: 767px) {
     margin-bottom: 20px;
   }

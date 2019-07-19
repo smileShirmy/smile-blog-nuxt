@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables.scss";
 @import "@/assets/scss/animation.scss";
 
 .app-container {
