@@ -72,8 +72,6 @@ import TagList from '@/components/base/tag-list/tag-list'
 import Dialog from '@/components/base/dialog/dialog'
 import defaultCover from '@/assets/image/lighthouse.jpeg'
 import { mapState, mapMutations } from 'vuex'
-import Vue from 'vue'
-const isServer = Vue.prototype.$isServer
 
 export default {
   name: 'article-detail',
@@ -182,10 +180,9 @@ export default {
     },
 
     getLikeArticles() {
-      if (isServer) {
-        return
+      if (process.client) {
+        this.likeArticles = JSON.parse(window.localStorage.getItem('LIKE_ARTICLES') || '[]')
       }
-      this.likeArticles = JSON.parse(window.localStorage.getItem('LIKE_ARTICLES') || '[]')
     },
 
     getComments() {

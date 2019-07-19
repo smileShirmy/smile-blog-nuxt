@@ -31,9 +31,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-const isServer = Vue.prototype.$isServer
-
 export default {
   props: {
     comments: {
@@ -69,7 +66,7 @@ export default {
       try {
         const res = this.$store.dispatch('article/likeComment', item.id)
         this.likeComments.push(item.id)
-        if (!isServer) {
+        if (process.client) {
           window.localStorage.setItem('LIKE_COMMENTS', JSON.stringify(this.likeComments))
         }
       } catch (e) {
@@ -79,10 +76,9 @@ export default {
     },
 
     getLikeComments() {
-      if (isServer) {
-        return
+      if (process.client) {
+        this.likeComments = JSON.parse(window.localStorage.getItem('LIKE_COMMENTS') || '[]')
       }
-      this.likeComments = JSON.parse(window.localStorage.getItem('LIKE_COMMENTS') || '[]')
     }
   },
 

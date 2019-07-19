@@ -17,8 +17,6 @@
 
 <script>
 import ClickOutside from '@/services/directives/click-outside'
-import Vue from 'vue'
-const isServer = Vue.prototype.$isServer
 
 export default {
   props: {
@@ -63,14 +61,14 @@ export default {
 
   methods: {
     lock() {
-      if (!isServer) {
+      if (process.client) {
         this.tmp.overflow = document.body.style.overflow
         document.body.style.overflow = 'hidden'
       }
     },
 
     unlock() {
-      if (!isServer) {
+      if (process.client) {
         document.body.style.overflow = this.tmp.overflow
       }
     },

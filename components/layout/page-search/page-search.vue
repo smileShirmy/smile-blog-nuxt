@@ -38,8 +38,6 @@ import { debounce } from 'throttle-debounce'
 import { mapMutations, mapState } from 'vuex'
 import TagList from '@/components/base/tag-list/tag-list'
 import SwitchTheme from '@/components/base/switch-theme/switch-theme'
-import Vue from 'vue'
-const isServer = Vue.prototype.$isServer
 
 export default {
   components: {
@@ -126,17 +124,15 @@ export default {
   },
 
   mounted() {
-    if (!isServer) {
-      return
+    if (process.client) {
+      document.body.style.overflow = 'hidden'
     }
-    document.body.style.overflow = 'hidden'
   },
 
   beforeDestroy() {
-    if (!isServer) {
-      return
+    if (process.client) {
+      document.body.style.overflow = 'visible'
     }
-    document.body.style.overflow = 'visible'
   }
 }
 </script>
