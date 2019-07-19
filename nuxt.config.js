@@ -75,10 +75,6 @@ module.exports = {
       ssr: false
     },
     {
-      src: '@/plugins/baidu-seo-push.js',
-      ssr: false
-    },
-    {
       src: '@/plugins/copy.js',
       ssr: false
     },
@@ -95,6 +91,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
   ],
 
