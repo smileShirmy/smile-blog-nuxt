@@ -70,6 +70,18 @@ module.exports = {
     {
       src: '@/plugins/global-component.js'
     },
+    {
+      src: '@/plugins/baidu-seo-push.js',
+      ssr: false
+    },
+    {
+      src: '@/plugins/baidu-seo-push.js',
+      ssr: false
+    },
+    {
+      src: '@/plugins/copy.js',
+      ssr: false
+    },
   ],
   /**
    * router config
@@ -84,6 +96,9 @@ module.exports = {
   */
   modules: [
   ],
+  styleResources: {
+    scss: ['./assets/scss/variables.scss', './assets/scss/mixin.scss']
+  },
   /*
   ** Build configuration
   */
