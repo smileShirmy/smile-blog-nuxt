@@ -59,25 +59,25 @@ module.exports = {
   */
   plugins: [
     {
-      src: '@/plugins/marked.js'
+      src: '~/plugins/marked.js'
     },
     {
-      src: '@/plugins/highlight.js'
+      src: '~/plugins/highlight.js'
     },
     {
-      src: '@/plugins/filter.js'
+      src: '~/plugins/filter.js'
     },
     {
-      src: '@/plugins/global-component.js'
+      src: '~/plugins/global-component.js'
     },
     {
-      src: '@/plugins/baidu-seo-push.js',
+      src: '~/plugins/baidu-seo-push.js',
       ssr: false
     },
     {
-      src: '@/plugins/copy.js',
+      src: '~/plugins/copy.js',
       ssr: false
-    },
+    }
   ],
   /**
    * router config
@@ -98,6 +98,12 @@ module.exports = {
       {
         max: 10000,
         maxAge: 1000 * 60 * 60
+      }
+    ],
+    [
+      '@nuxtjs/google-analytics',
+      {
+        id: 'UA-144196694-X'
       }
     ]
   ],
