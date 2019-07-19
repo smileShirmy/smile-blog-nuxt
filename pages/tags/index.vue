@@ -6,7 +6,7 @@
     </div>
     <split-line :icon="'tag'" :desc="'分类'"></split-line>
     <ul class="category-list">
-      <nuxt-link tag="li" class="category-item" v-for="category in categories" :key="category.id" :to="`/tags/${category.id}/categoryFlag`">
+      <nuxt-link tag="li" class="category-item" v-for="category in categories" :key="category.id" :to="`/category/${category.id}`">
         <div class="category-wrapper">
           <div class="category-image" :style="{backgroundImage: `url(${category.cover})`}"></div>
           <h2 class="title" :class="{center: !category.description}">{{category.name}}</h2>
@@ -42,7 +42,10 @@ export default {
   methods: {
     onSelectTag(tag) {
       this.$router.push({
-        path: `/tags/${tag.id}/${tag.name}`
+        path: `/tag/${tag.id}`,
+        query: {
+          name: tag.name
+        }
       })
     }
   }
