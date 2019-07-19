@@ -38,6 +38,8 @@ const monthMap = {
 }
 
 export default {
+  name: 'archive-page',
+
   components: {
     SplitLine
   },

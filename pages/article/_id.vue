@@ -76,6 +76,8 @@ import Vue from 'vue'
 const isServer = Vue.prototype.$isServer
 
 export default {
+  name: 'article-detail',
+
   components: {
     Recommend,
     Comment,

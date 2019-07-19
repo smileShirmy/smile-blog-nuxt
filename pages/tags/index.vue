@@ -23,6 +23,8 @@ import TagList from '@/components/base/tag-list/tag-list'
 import { mapState } from 'vuex'
 
 export default {
+  name: 'tags-page',
+
   components: {
     SplitLine,
     TagList

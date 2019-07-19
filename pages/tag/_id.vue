@@ -6,6 +6,8 @@
 import tagDetail from '@/components/layout/tag-detail/tag-detail'
 
 export default {
+  name: 'tag-detail',
+
   components: {
     tagDetail
   },

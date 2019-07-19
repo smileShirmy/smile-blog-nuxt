@@ -29,6 +29,8 @@ import markdown from '@/plugins/marked'
 import { mapState } from 'vuex'
 
 export default {
+  name: 'messages-page',
+
   components: {
     SplitLine,
     CommentEditor

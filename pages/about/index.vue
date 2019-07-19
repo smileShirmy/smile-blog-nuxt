@@ -30,6 +30,8 @@ import SplitLine from '@/components/base/split-line/split-line'
 import { mapState } from 'vuex'
 
 export default {
+  name: 'about-page',
+
   components: {
     SplitLine
   },

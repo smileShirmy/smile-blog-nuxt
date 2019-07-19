@@ -39,6 +39,8 @@ const defaultStar = {
 }
 
 export default {
+  name: 'home-page',
+
   components: {
     Carousel,
     CarouselItem,

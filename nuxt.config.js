@@ -93,6 +93,13 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
+    [
+      '@nuxtjs/component-cache',
+      {
+        max: 10000,
+        maxAge: 1000 * 60 * 60
+      }
+    ]
   ],
 
   styleResources: {

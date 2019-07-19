@@ -7,6 +7,8 @@ import tagDetail from '@/components/layout/tag-detail/tag-detail'
 import { mapState } from 'vuex'
 
 export default {
+  name: 'category-detail',
+
   components: {
     tagDetail
   },

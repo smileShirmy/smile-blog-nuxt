@@ -22,6 +22,8 @@ import ArticleList from "@/components/layout/article-list/article-list"
 import { mapState } from 'vuex'
 
 export default {
+  name: 'about-detail',
+
   components: {
     DetailHeader,
     ArticleList
