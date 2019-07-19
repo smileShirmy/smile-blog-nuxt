@@ -17,10 +17,9 @@
 </template>
 
 <script>
-import DetailHeader from "@/components/layout/detail-header/detail-header";
-import ArticleList from "@/components/layout/article-list/article-list";
-// import author from '@/services/models/author'
-// import article from '@/services/models/article'
+import DetailHeader from "@/components/layout/detail-header/detail-header"
+import ArticleList from "@/components/layout/article-list/article-list"
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -28,84 +27,44 @@ export default {
     ArticleList
   },
 
-  data() {
-    return {
-      total: 0,
-      page: 0,
-      authorId: 0,
-      author: {},
-      articles: [],
-      loading: false
-    };
+  async fetch({ store, params }) {
+    await store.dispatch('about/getAuthor', params.id)
+    await store.dispatch('about/getArticles', {
+      authorId: params.id,
+      page: 0
+    })
   },
 
-  watch: {
-    $route(val) {
-      if (!this.authorId) {
-        return
-      }
-      this.page = 0
-      this.total = 0
-      this.author = {}
-      this.articles = []
-      this.authorId = val.params.id
-      this.getAuthorDetail()
-      this.getArticles()
+  data() {
+    return {
+      id: null,
+      page: 0
     }
+  },
+
+  computed: {
+    ...mapState({
+      author: state => state.about.author,
+      articles: state => state.about.articles,
+      total: state => state.about.total,
+      loading: state => state.about.loading
+    })
   },
 
   methods: {
     onLoadMore() {
-      if (this.loading) {
-        return
-      }
       this.page++
-      this.getArticles()
-    },
-
-    async getArticles() {
-      if (!this.authorId) {
-        return
-      }
-      try {
-        this.loading = true
-        const { articles, total } = await article.getArticles({
-          authorId: this.authorId,
-          page: this.page
-        })
-        this.total = total
-        this.articles = this.articles.concat(articles)
-        this.loading = false
-      } catch (e) {
-        this.loading = false
-        // eslint-disable-next-line no-console
-        console.log(e)
-      }
-    },
-
-    async getAuthorDetail() {
-      if (!this.authorId) {
-        return
-      }
-      try {
-        const res = await author.getAuthorDetail(this.authorId)
-        this.author = res
-      } catch (e) {
-        // eslint-disable-next-line no-console
-        console.log(e)
-      }
+      this.$store.dispatch('about/getMoreArticles', {
+        authorId: this.id,
+        page: this.page
+      })
     }
   },
 
   created() {
-    this.authorId = this.$route.params.id
-    this.getAuthorDetail()
-  },
-
-  mounted() {
-    this.getArticles()
+    this.id = parseInt(this.$nuxt.$route.params.id)
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
