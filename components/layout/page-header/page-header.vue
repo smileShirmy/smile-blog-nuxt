@@ -97,7 +97,7 @@ export default {
 
 @media (max-width: 1023px) {
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
 }
 </style>
