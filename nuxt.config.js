@@ -90,6 +90,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     [
@@ -99,13 +100,11 @@ module.exports = {
         maxAge: 1000 * 60 * 60
       }
     ],
-    [
-      '@nuxtjs/google-analytics',
-      {
-        id: 'UA-144196694-X'
-      }
-    ]
   ],
+
+  googleAnalytics: {
+    id: 'UA-144196694-X'
+  },
 
   styleResources: {
     scss: ['./assets/scss/variables.scss', './assets/scss/mixin.scss']
