@@ -15,7 +15,7 @@ export const state = () => ({
   loading: false,
 
   // 详情
-  article: {},
+  article: null,
   comments: []
 })
 

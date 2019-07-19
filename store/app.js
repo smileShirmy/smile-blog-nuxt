@@ -9,6 +9,7 @@ export const mutations = {
     window.localStorage.setItem('THEME', theme)
     state.theme = theme
   },
+
   setShowSearch(state, isShowSearch) {
     state.isShowSearch = isShowSearch
   }

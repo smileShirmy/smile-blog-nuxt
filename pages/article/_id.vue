@@ -110,6 +110,9 @@ export default {
     ...mapState({
       article(state) {
         const article = state.article.article
+        if (!article) {
+          return {}
+        }
         if (article.cover) {
           this.articleCover = { backgroundImage: `url(${article.cover})` }
         } else {
