@@ -20,8 +20,3 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
-
-## TODO
-
-1. seo优化
-2. intersection-polyfill
