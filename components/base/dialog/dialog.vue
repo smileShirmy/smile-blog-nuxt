@@ -17,6 +17,8 @@
 
 <script>
 import ClickOutside from '@/services/directives/click-outside'
+import Vue from 'vue'
+const isServer = Vue.prototype.$isServer
 
 export default {
   props: {
@@ -61,12 +63,16 @@ export default {
 
   methods: {
     lock() {
-      this.tmp.overflow = document.body.style.overflow
-      document.body.style.overflow = 'hidden'
+      if (!isServer) {
+        this.tmp.overflow = document.body.style.overflow
+        document.body.style.overflow = 'hidden'
+      }
     },
 
     unlock() {
-      document.body.style.overflow = this.tmp.overflow
+      if (!isServer) {
+        document.body.style.overflow = this.tmp.overflow
+      }
     },
 
     close() {
@@ -109,7 +115,7 @@ export default {
     font-size: $title-font-size-large;
     transition: $theme-transition;
     cursor: pointer;
-    
+
     &:hover {
       color: var(--theme-active);
     }

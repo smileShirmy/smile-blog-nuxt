@@ -48,10 +48,3 @@ export const actions = {
     return await message.createMessage(params)
   }
 }
-
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions,
-}

@@ -13,9 +13,3 @@ export const mutations = {
     state.isShowSearch = isShowSearch
   }
 }
-
-export default {
-  namespaced: true,
-  state,
-  mutations
-}

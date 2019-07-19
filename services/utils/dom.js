@@ -1,5 +1,5 @@
-import Vue from 'vue';
-const isServer = Vue.prototype.$isServer;
+import Vue from 'vue'
+const isServer = Vue.prototype.$isServer
 
 export const on = (function() {
   if (!isServer && document.addEventListener) {

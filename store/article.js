@@ -1,12 +1,22 @@
 import article from '../models/article'
+import comment from '../models/comment'
 import Utils from '../services/utils/util'
+import marked from '../plugins/marked'
 
 export const state = () => ({
+  // 文章列表
   articles: [],
   total: 0,
+
+  // 归档
   starArticles: [],
+  archive: [],
+
   loading: false,
-  archive: []
+
+  // 详情
+  article: {},
+  comments: []
 })
 
 export const mutations = {
@@ -26,12 +36,41 @@ export const mutations = {
 
   setArchive(state, archive) {
     state.archive = archive
+  },
+
+  setComments(state, comments) {
+    comments.forEach(v => {
+      v.content = marked(v.content)
+      if (v.parent_id !== 0) {
+        const reply = comments.find(target => target.id === v.parent_id)
+        if (reply) {
+          v.replyName = reply.nickname
+          v.replyContent = marked(reply.content)
+        } else {
+          v.replyName = ''
+          v.replyContent = '该评论已被删除'
+        }
+      }
+    })
+    state.comments = comments
+  },
+
+  setArticleDetail(state, article) {
+    state.article = article
+  },
+
+  setLikeComment(state, id) {
+    state.comments.forEach(v => {
+      if (v.id === id) {
+        v.like ++
+      }
+    })
   }
 }
 
 export const actions = {
   // 获取首页文章列表
-  async getHomeArticles({ commit, state }, params) {
+  async getHomeArticles({ commit }, params) {
     try {
       const { articles, total } = await article.getArticles(params)
       const starArticles = await article.getStarArticles()
@@ -42,7 +81,7 @@ export const actions = {
     }
   },
 
-  async getMoreArticles({ commit, state }, params) {
+  async getMoreArticles({ commit }, params) {
     try {
       commit('setLoading', true)
       const { articles, total } = await article.getArticles(params)
@@ -101,12 +140,45 @@ export const actions = {
       // eslint-disable-next-line no-console
       console.log(e)
     }
-  }
-}
+  },
 
-export default {
-  namespaced: true,
-  state,
-  mutations,
-  actions,
+  async getComments({ commit }, params) {
+    try {
+      const comments = await comment.getComments(params)
+      commit('setComments', comments)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e)
+    }
+  },
+
+  async getArticleDetail({ commit }, params) {
+    try {
+      const result = await article.getArticleDetail(params)
+      commit('setArticleDetail', result)
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.log(e)
+    }
+  },
+
+  async likeArticle(_, id) {
+    return await article.likeArticle(id)
+  },
+
+  async likeComment({ commit}, id) {
+    const res = await comment.likeComment(id)
+    if (res.errorCode === 0) {
+      commit('setLikeComment', id)
+      return res
+    }
+  },
+
+  async createComment(_, params) {
+    return await comment.createComment(params)
+  },
+
+  async replyComment(_, params) {
+    return await comment.replyComment(params)
+  }
 }

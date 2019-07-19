@@ -50,9 +50,19 @@ module.exports = {
       src: '@/plugins/global-component.js'
     },
   ],
-
+  /**
+   * server config
+   */
   server: {
     port: 5000, // default: 3000
+  },
+  /**
+   * router config
+   */
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
   },
   /*
   ** Nuxt.js modules
