@@ -6,7 +6,7 @@
       <dl class="month-wrapper" v-for="month in year.monthList" :key="month.month">
         <dt class="month-name">{{month.month | monthTrans}}</dt>
         <dd class="article-item" v-for="article in month.articles" :key="article.id">
-          <span class="time">{{article.created_date | filterTime('m.d')}}</span>
+          <span class="time">{{article.created_date}}</span>
           <router-link class="title" :to="'/article/' + article.id">{{article.title}}</router-link>
           <div class="avtar-wrapper">
             <i v-for="author in article.authors" :key="author.id" class="avatar" :style="{backgroundImage: `url(${author.avatar})`}"></i>
@@ -19,7 +19,6 @@
 
 <script>
 import SplitLine from '@/components/base/split-line/split-line'
-// import article from '@/services/models/article'
 import Utils from '@/services/utils/util'
 
 const monthMap = {
@@ -69,9 +68,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/assets/scss/variables.scss';
-@import '@/assets/scss/mixin.scss';
-
 @mixin margin {
   margin-top: .5em;
   margin-left: 2em;

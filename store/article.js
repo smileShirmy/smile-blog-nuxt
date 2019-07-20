@@ -108,12 +108,16 @@ export const actions = {
       let yearIndex = -1
       let monthIndex = 0
       res.forEach(v => {
-        let year = v.created_date.split('-')[0]
-        let month = parseInt(v.created_date.split('-')[1])
+        let dateArr = v.created_date.split('-')
+        let year = dateArr[0]
+        let month = parseInt(dateArr[1])
+        let day = parseInt(dateArr[2])
         if (year === curYear) {
           if (month === curMonth) {
+            v.created_date = `${month}.${day}`
             archive[yearIndex].monthList[monthIndex].articles.push(v)
           } else {
+            v.created_date = `${month}.${day}`
             archive[yearIndex].monthList.push({
               month,
               articles: [v]
@@ -122,6 +126,7 @@ export const actions = {
             curMonth = month
           }
         } else {
+          v.created_date = `${month}.${day}`
           archive.push({
             year,
             monthList: [{
