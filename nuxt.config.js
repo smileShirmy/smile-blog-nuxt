@@ -71,10 +71,6 @@ module.exports = {
       src: '~/plugins/global-component.js'
     },
     {
-      src: '~/plugins/baidu-seo-push.js',
-      ssr: false
-    },
-    {
       src: '~/plugins/copy.js',
       ssr: false
     }

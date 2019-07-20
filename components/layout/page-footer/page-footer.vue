@@ -31,40 +31,18 @@
 import SwitchTheme from '@/components/base/switch-theme/switch-theme'
 import DesktopNav from '@/components/base/nav/desktop-nav'
 
-const navList = [
-  {
-    link: "/",
-    name: "首页"
-  },
-  {
-    link: "/archive",
-    name: "归档"
-  },
-  {
-    link: "/map",
-    name: "标签"
-  },
-  {
-    link: "/about",
-    name: "关于"
-  },
-  {
-    link: "/messages",
-    name: "留言墙"
-  }
-];
-
 export default {
   components: {
     SwitchTheme,
     DesktopNav
   },
 
-  data() {
-    return {
-      navList
+  props: {
+    navList: {
+      type: Array,
+      default: () => []
     }
-  }
+  },
 }
 </script>
 
