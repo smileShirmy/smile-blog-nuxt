@@ -32,7 +32,7 @@ export default {
 
   computed: {
     homeMobileClass() {
-      return this.$route.path.includes("home") ? "home-mobile-class" : "";
+      return this.$route.path === '/' ? "home-mobile-class" : "";
     }
   }
 };
