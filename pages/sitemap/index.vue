@@ -30,6 +30,12 @@ export default {
     TagList
   },
 
+  head() {
+    return {
+      title: '标签'
+    }
+  },
+
   async fetch ({ store, params }) {
     await store.dispatch('tag/getTagAndCategories')
   },

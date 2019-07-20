@@ -29,6 +29,12 @@ export default {
     ArticleList
   },
 
+  head() {
+    return {
+      title: this.author.name
+    }
+  },
+
   async fetch({ store, params }) {
     await store.dispatch('about/getAuthor', params.id)
     await store.dispatch('about/getArticles', {

@@ -12,8 +12,11 @@
         <a href="mailto:qiushiming1997@gmail.com" target="_blank">
           <i class="icon icon-mail"></i>
         </a>
-        <a href="https://github.com/smileShirmy">
+        <a href="https://github.com/smileShirmy" target="_blank">
           <i class="icon icon-github"></i>
+        </a>
+        <a href="https://juejin.im/user/5a37bf31f265da430e4f43eb" target="_blank">
+          <span class="text">掘金</span>
         </a>
       </div>
     </div>
@@ -38,7 +41,7 @@ const navList = [
     name: "归档"
   },
   {
-    link: "/tags",
+    link: "/map",
     name: "标签"
   },
   {
@@ -124,6 +127,8 @@ export default {
       }
 
       a {
+        display: flex;
+        align-items: center;
         margin-left: 24px;
 
         &:first-child {
@@ -133,6 +138,14 @@ export default {
 
       .icon {
         font-size: $title-font-size-base;
+
+        &:hover {
+          color: var(--theme-active);
+        }
+      }
+
+      .text {
+        white-space: nowrap;
 
         &:hover {
           color: var(--theme-active);

@@ -84,6 +84,12 @@ export default {
     Dialog
   },
 
+  head() {
+    return {
+      title: this.article.title
+    }
+  },
+
   async fetch({ store, params }) {
     await store.dispatch('article/getArticleDetail', {
       id: params.id

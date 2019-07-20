@@ -6,10 +6,14 @@
 import tagDetail from '@/components/layout/tag-detail/tag-detail'
 
 export default {
-  name: 'tag-detail',
-
   components: {
     tagDetail
+  },
+
+  head() {
+    return {
+      title: this.name
+    }
   },
 
   async fetch({ store, params }) {

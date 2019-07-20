@@ -44,6 +44,12 @@ export default {
     SplitLine
   },
 
+  head() {
+    return {
+      title: '归档'
+    }
+  },
+
   async fetch ({ store, params }) {
     await store.dispatch('article/getArchive')
   },

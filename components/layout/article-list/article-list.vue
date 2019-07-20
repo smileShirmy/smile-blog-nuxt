@@ -44,6 +44,8 @@
 
 <script>
 export default {
+  name: 'article-list',
+
   props: {
     articles: {
       type: Array,
@@ -64,7 +66,7 @@ export default {
   computed: {
     isLoadMore() {
       if (this.articles.length && !this.loading) {
-        return this.total % this.articles.length > 0
+        return this.total > this.articles.length
       } else {
         return false
       }

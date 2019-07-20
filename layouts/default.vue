@@ -9,7 +9,7 @@
     </main>
     <page-footer></page-footer>
     <transition name="search-slide">
-      <page-search v-if="$store.state.app.isShowSearch"></page-search>
+      <page-search v-if="isShowSearch"></page-search>
     </transition>
     <scroll-top></scroll-top>
   </div>
@@ -28,6 +28,16 @@ export default {
     PageFooter,
     PageSearch,
     ScrollTop
+  },
+
+  computed: {
+    isShowSearch() {
+      const is = this.$store.state.app.isShowSearch
+      if (process.client) {
+        document.documentElement.style.overflowY = is ? 'hidden' : 'visible'
+      }
+      return is
+    }
   },
 
   methods: {

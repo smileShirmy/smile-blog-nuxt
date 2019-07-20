@@ -10,7 +10,8 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'smile',
+    title: '夏季指南',
+    titleTemplate: '%s | shirmy',
     meta: [
       { charset: 'utf-8' },
       { 'http-equiv': 'cleartype', content: 'on' },

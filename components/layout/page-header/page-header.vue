@@ -26,7 +26,7 @@ const navList = [
     name: "归档"
   },
   {
-    link: "/tags",
+    link: "/sitemap",
     name: "标签"
   },
   {

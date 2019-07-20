@@ -36,6 +36,12 @@ export default {
     SplitLine
   },
 
+  head() {
+    return {
+      title: '关于'
+    }
+  },
+
   async fetch ({ store, params }) {
     await store.dispatch('about/getAuthors')
   },

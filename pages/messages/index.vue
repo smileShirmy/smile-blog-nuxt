@@ -36,6 +36,12 @@ export default {
     CommentEditor
   },
 
+  head() {
+    return {
+      title: '留言墙'
+    }
+  },
+
   async fetch({ store, params }) {
     await store.dispatch('message/getMessages', {
       page: 0
@@ -57,7 +63,7 @@ export default {
 
     isLoadMore() {
       if (this.messages.length && !this.loading) {
-        return this.total % this.messages.length > 0
+        return this.total > this.messages.length
       } else {
         return false
       }
