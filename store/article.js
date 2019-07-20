@@ -101,6 +101,10 @@ export const actions = {
         v.created_date = Utils.timestampToTime(v.created_date)
       })
 
+      function format(month, day) {
+        return month.toString().padStart(2, '0') + '.' + day.padStart(2, '0')
+      }
+
       let archive = []
       // 按年份月份重新组合
       let curYear = ''
@@ -111,13 +115,13 @@ export const actions = {
         let dateArr = v.created_date.split('-')
         let year = dateArr[0]
         let month = parseInt(dateArr[1])
-        let day = parseInt(dateArr[2])
+        let time = dateArr[2].split(' ')[0]
         if (year === curYear) {
           if (month === curMonth) {
-            v.created_date = `${month}.${day}`
+            v.created_date = format(month, time)
             archive[yearIndex].monthList[monthIndex].articles.push(v)
           } else {
-            v.created_date = `${month}.${day}`
+            v.created_date = format(month, time)
             archive[yearIndex].monthList.push({
               month,
               articles: [v]
@@ -126,7 +130,7 @@ export const actions = {
             curMonth = month
           }
         } else {
-          v.created_date = `${month}.${day}`
+          v.created_date = format(month, time)
           archive.push({
             year,
             monthList: [{
