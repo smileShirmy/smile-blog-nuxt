@@ -62,9 +62,10 @@
               v-model="form.email"
               v-if="!isMessageEditor"
               class="user-input"
+              :required="isMessageEditor ? false : true"
               name="email"
               type="email"
-              placeholder="邮箱（非必填）"
+              placeholder="邮箱（必填）"
             >
             <input
               v-model="form.website"
@@ -132,10 +133,7 @@ export default {
   methods: {
     // 重置为空
     resetField() {
-      this.form.nickname = ''
       this.form.content = ''
-      this.form.email = ''
-      this.form.website = ''
       this.contentText = ''
       this.contentHtml = ''
       this.$refs.editContent.innerHTML = ''
@@ -169,13 +167,26 @@ export default {
         alert(inValidMsg)
         return
       }
+      if (process.client) {
+        const user = {
+          nickname: this.form.nickname,
+          email: this.form.email,
+          website: this.form.website,
+        }
+        window.localStorage.setItem('USER', JSON.stringify(user))
+      }
       this.$emit('send', this.form)
     },
 
     getInValidMsg() {
       this.form.content = this.contentText
-      if (this.form.email && Uitls.validateEmail(this.form.email) === false) {
-        return '请填写正确的email格式'
+      if (!this.isMessageEditor) {
+        if (!this.form.email) {
+          return '邮箱不能为空'
+        }
+        if (Uitls.validateEmail(this.form.email) === false) {
+          return '请填写正确的email格式'
+        }
       }
       if (this.form.website && Uitls.validateUrl(this.form.website) === false) {
         return '请填写正确的url格式'
@@ -248,9 +259,18 @@ export default {
 
   created() {
     // 发送防抖
-    this.debouncedSend = debounce(2000, true, () => {
+    this.debouncedSend = debounce(1000, true, () => {
       this.send()
     })
+    if (process.client) {
+      let user = window.localStorage.getItem('USER')
+      if (user) {
+        user = JSON.parse(user)
+        this.form.nickname = user.nickname || ''
+        this.form.email = user.email || ''
+        this.form.website = user.website || ''
+      }
+    }
   }
 };
 </script>

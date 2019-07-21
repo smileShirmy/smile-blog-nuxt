@@ -22,6 +22,17 @@
         </div>
       </li>
     </ul>
+    <div v-if="friends.length">
+      <split-line
+        :icon="'star-fill'"
+        :desc="'友链 (在留言板申请“昵称+链接”)'"
+      ></split-line>
+      <ul class="friend-wrapper">
+        <template v-for="friend in friends">
+          <a class="friend-item" :key="friend.id" :href="friend.link" target="_blank">{{friend.name}}</a>
+        </template>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -44,11 +55,13 @@ export default {
 
   async fetch ({ store, params }) {
     await store.dispatch('about/getAuthors')
+    await store.dispatch('blog/getFriends')
   },
 
   computed: {
     ...mapState({
-      authors: state => state.about.authors
+      authors: state => state.about.authors,
+      friends: state => state.blog.friends
     })
   },
 
@@ -152,4 +165,34 @@ export default {
   }
 }
 
+.friend-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 -5px;
+
+  .friend-item {
+    display: inline-block;
+    padding: 5px 12px;
+    margin: 5px;
+    color: var(--font-color-primary);
+    font-size: $font-size-base;
+    font-weight: $font-weight-bold;
+    letter-spacing: 1.5px;
+    border-radius: 20px;
+    background: var(--tag-color);
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: #fff;
+      background: var(--theme-active);
+      transition: all .25s ease-in-out;
+    }
+  }
+}
 </style>
