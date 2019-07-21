@@ -22,12 +22,12 @@
         </div>
       </li>
     </ul>
-    <div v-if="friends.length">
+    <div>
       <split-line
         :icon="'star-fill'"
         :desc="'友链 (在留言板申请“昵称+链接”)'"
       ></split-line>
-      <ul class="friend-wrapper">
+      <ul class="friend-wrapper" v-if="friends.length">
         <template v-for="friend in friends">
           <a class="friend-item" :key="friend.id" :href="friend.link" target="_blank">{{friend.name}}</a>
         </template>
