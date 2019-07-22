@@ -34,7 +34,9 @@ export default {
 .nav-list {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  font-size: 1rem;
 
   .nav-list-item {
     position: relative;

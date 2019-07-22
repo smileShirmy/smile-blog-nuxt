@@ -11,6 +11,7 @@ export const state = () => ({
   // 归档
   starArticles: [],
   archive: [],
+  archiveTotal: 0,
 
   loading: false,
 
@@ -34,8 +35,9 @@ export const mutations = {
     state.loading = loading
   },
 
-  setArchive(state, archive) {
+  setArchive(state, { archive, total }) {
     state.archive = archive
+    state.archiveTotal = total
   },
 
   setComments(state, comments) {
@@ -105,6 +107,7 @@ export const actions = {
         return month.toString().padStart(2, '0') + '.' + day.padStart(2, '0')
       }
 
+      const total = res.length
       let archive = []
       // 按年份月份重新组合
       let curYear = ''
@@ -144,7 +147,7 @@ export const actions = {
           curYear = year
         }
       })
-      commit('setArchive', archive)
+      commit('setArchive', { archive, total })
     } catch (e) {
       // eslint-disable-next-line no-console
       console.log(e)

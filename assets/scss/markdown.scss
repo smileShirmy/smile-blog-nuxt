@@ -3,6 +3,10 @@
 .markdown {
   font-size: 15px;
 
+  @media (max-width: 479px) {
+    font-size: 14px;
+  }
+
   pre {
     margin: .5em 0;
     padding: 1em;
@@ -58,7 +62,17 @@
       list-style: disc;
     }
   }
-  
+
+  ol {
+    margin: 1em 0;
+    padding-left: 2em;
+
+    li {
+      padding: .3em;
+      list-style: decimal;
+    }
+  }
+
 
   .image-wrapper {
     display: flex;
@@ -70,6 +84,7 @@
       box-sizing: border-box;
       display: flex;
       justify-content: center;
+      align-items: center;
       position: relative;
       width: 100%;
       padding: 0 1em;
@@ -81,7 +96,7 @@
       }
 
       .thumbnail {
-        filter: blur(8px);  
+        filter: blur(8px);
       }
 
       .real-image {

@@ -24,7 +24,7 @@ export default {
   align-items: center;
 
   .icon {
-    font-size: $title-font-size-base;
+    font-size: $font-size-icon-rem;
   }
 
   .desc {

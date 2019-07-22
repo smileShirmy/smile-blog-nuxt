@@ -1,6 +1,6 @@
 <template>
   <div class="archive-container">
-    <split-line :icon="'post'" :desc="`${archive.length} posts`"></split-line>
+    <split-line :icon="'post'" :desc="`${archiveTotal} posts`"></split-line>
     <div class="year-wrapper" v-for="year in archive" :key="year.year">
       <div class="year-name">{{year.year}}</div>
       <dl class="month-wrapper" v-for="month in year.monthList" :key="month.month">
@@ -20,6 +20,7 @@
 <script>
 import SplitLine from '@/components/base/split-line/split-line'
 import Utils from '@/services/utils/util'
+import { mapState } from 'vuex'
 
 const monthMap = {
   1: 'January',
@@ -60,9 +61,10 @@ export default {
   },
 
   computed: {
-    archive() {
-      return this.$store.state.article.archive
-    }
+    ...mapState({
+      archive: state => state.article.archive,
+      archiveTotal: state => state.article.archiveTotal
+    })
   }
 }
 </script>
@@ -74,7 +76,7 @@ export default {
 
   @media (max-width: 479px) {
     margin-top: .3em;
-    margin-left: 0;
+    margin-left: .7em;
   }
 }
 
@@ -100,7 +102,7 @@ export default {
   @include margin;
 
   .month-name {
-    font-size: $font-size-large;
+    font-size: 1.1rem;
   }
 }
 
@@ -108,6 +110,11 @@ export default {
   @include margin;
   display: flex;
   min-height: 30px;
+  font-size: 1rem;
+
+  @media (max-width: 479px) {
+    margin-left: 1.5em;
+  }
 
   .time {
     position: relative;
@@ -118,17 +125,15 @@ export default {
       margin: 0 10px 0 0;
     }
 
-    @media (min-width: 480px) {
-      &:before {
-        content: '';
-        position: absolute;
-        top: 9px;
-        left: -18px;
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: var(--font-color-primary);
-      }
+    &:before {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: -18px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: var(--font-color-primary);
     }
   }
 

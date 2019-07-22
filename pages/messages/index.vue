@@ -196,6 +196,7 @@ export default {
   @media (max-width: 479px) {
     width: 30px;
     height: 30px;
+    border-width: 5px;
   }
 
   &:hover {

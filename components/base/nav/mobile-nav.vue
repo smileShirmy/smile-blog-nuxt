@@ -189,6 +189,8 @@ export default {
 }
 
 .nav-list {
+  font-size: 1rem;
+
   .nav-list-item {
     display: flex;
     justify-content: flex-start;

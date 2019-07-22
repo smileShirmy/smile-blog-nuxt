@@ -431,10 +431,11 @@ export default {
 .tags-wrapper {
   display: flex;
   justify-content: flex-start;
+  font-size: 1rem;
 
   >i {
     margin: 8px 10px 0 0;
-    font-size: $font-size-extra-large;
+    font-size: $font-size-icon-rem;
   }
 
   .tags {
@@ -460,11 +461,12 @@ export default {
   width: 30px;
   height: 30px;
   margin-top: 5px;
+  font-size: 1rem;
   cursor: pointer;
 
   >i {
     margin-right: 6px;
-    font-size: $font-size-extra-large;
+    font-size: $font-size-icon-rem;
 
     &:hover {
       color: var(--theme-active);

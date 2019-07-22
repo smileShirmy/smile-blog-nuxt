@@ -73,7 +73,13 @@ const imageParse = (src, title, alt) => {
   `
 }
 
+const linkParser = (href, title, text) => {
+  const self = href.substr(0, 1) === '#'
+  return `<a href="${href}" target="${self ? '_self' : '_blank'}">${text}</a>`
+}
+
 renderer.image = imageParse
+renderer.link = linkParser
 
 export default (content) => {
   if (typeof content !== 'string') {

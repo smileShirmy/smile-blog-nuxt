@@ -99,6 +99,7 @@ export default {
     .social-links {
       display: flex;
       justify-content: flex-end;
+      font-size: 1rem;
 
       @media (max-width: 1023px) {
         justify-content: center;
@@ -115,7 +116,7 @@ export default {
       }
 
       .icon {
-        font-size: $title-font-size-base;
+        font-size: $font-size-icon-rem;
 
         &:hover {
           color: var(--theme-active);

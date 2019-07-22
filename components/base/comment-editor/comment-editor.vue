@@ -379,6 +379,7 @@ export default {
     min-height: 6em;
     max-height: 30em;
     padding: 10px;
+    font-size: 1rem;
     color: var(--font-color-article);
     border: 1px solid var(--border-color);
     border-radius: 4px;
@@ -408,8 +409,9 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1rem;
 
-    @media (max-width: 479px) {
+    @media (max-width: 767px) {
       flex-direction: column;
     }
 
@@ -437,7 +439,7 @@ export default {
         border-color: var(--font-color-light);
       }
 
-      @media (max-width: 479px) {
+      @media (max-width: 767px) {
         width: calc(100% - 20px);
         margin: 3px 5px;
       }
