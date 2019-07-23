@@ -65,6 +65,9 @@ module.exports = {
       src: '~/plugins/highlight.js'
     },
     {
+      src: '~/plugins/gravatar.js'
+    },
+    {
       src: '~/plugins/filter.js'
     },
     {

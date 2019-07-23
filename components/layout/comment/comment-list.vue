@@ -1,10 +1,10 @@
 <template>
   <ul class="comment-list">
     <li class="comment-item" v-for="comment in comments" :key="comment.id">
-      <i class="avatar"></i>
+      <img class="avatar" :src="gravatar(comment.email)" :alt="comment.nickname || '匿名用户'">
       <section class="comment-detail markdown">
         <div class="nickname">
-          <i class="mobile-avatar"></i>
+          <img class="mobile-avatar" :src="gravatar(comment.email)" :alt="comment.nickname || '匿名用户'">
           <a v-if="comment.website" class="website icon icon-planet" :href="comment.website" target="_blank"></a>
           <span>{{comment.nickname}}</span>
         </div>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import gravatar from '@/services/gravatar/gravatar'
+
 export default {
   props: {
     comments: {
@@ -57,6 +59,10 @@ export default {
 
     reply(commentId) {
       this.$emit('reply', commentId)
+    },
+
+    gravatar(email) {
+      return gravatar(email)
     },
 
     async likeComment(item) {
@@ -125,8 +131,10 @@ export default {
       justify-content: flex-start;
       align-items: center;
 
-      @media (max-width: 479px) {
-        .mobile-avatar {
+      .mobile-avatar {
+        display: none;
+
+        @media (max-width: 479px) {
           display: inline-block;
           width: 26px;
           height: 26px;
@@ -134,7 +142,6 @@ export default {
           border-radius: 50%;
           background-color: #eee;
         }
-
       }
 
       .website {
@@ -150,10 +157,7 @@ export default {
       align-items: center;
       min-height: 42px;
       margin: 8px 0;
-
-      @media (max-width: 479px) {
-        font-size: $font-size-medium;
-      }
+      font-size: 1rem;
     }
 
     .reply-wrapper {

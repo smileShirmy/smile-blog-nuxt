@@ -1,6 +1,6 @@
 <template>
   <div class="editor-container" :class="{'message-container': isMessageEditor}">
-    <i v-if="!isMessageEditor" class="avatar"></i>
+    <img v-if="!isMessageEditor" class="avatar" :src="avatar" :alt="form.nickname || '匿名用户'">
     <section class="comment-wrapper">
       <transition-group class="slide-wrapper" tag="div" name="list-slide">
         <!-- 回复内容区域 -->
@@ -87,6 +87,7 @@ import { debounce } from 'throttle-debounce'
 import Uitls from '@/services/utils/util'
 import ClickOutside from '@/services/directives/click-outside'
 import { getCursorPosition, setCursorPosition } from '@/services/utils/dom'
+import gravatar from '@/services/gravatar/gravatar'
 
 const emojiList = [
   '😃', '😂', '😅', '😉', '😌', '😔', '😓', '😘', '😡', '😭', '😱', '😳', '😵',
@@ -128,6 +129,12 @@ export default {
 
   directives: {
     ClickOutside
+  },
+
+  computed: {
+    avatar() {
+      return gravatar(this.form.email)
+    }
   },
 
   methods: {
@@ -191,9 +198,9 @@ export default {
       if (this.form.website && Uitls.validateUrl(this.form.website) === false) {
         return '请填写正确的url格式'
       }
-      if (!this.form.content) {
+      if (!this.form.content  || !this.form.content.replace(/\s/g, '')) {
         if (this.form.content.length > 1000 || this.form.content.split('\n').length > 30) {
-          return this.isMessageEditor ? '留言内容不能超过1000个字且控制在30行以内' : '评论内容不能超过1000个字且控制在30行以内'
+          return `${this.isMessageEditor ? '留言' : '评论'}内容不能超过1000个字且控制在30行以内`
         }
         return this.isMessageEditor ? '留言内容不能为空' : '评论内容不能为空'
       }

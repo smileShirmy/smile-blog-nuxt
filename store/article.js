@@ -40,7 +40,7 @@ export const mutations = {
     state.archiveTotal = total
   },
 
-  setComments(state, comments) {
+  setComments(state, comments = []) {
     comments.forEach(v => {
       v.content = marked(v.content)
       if (v.parent_id !== 0) {
