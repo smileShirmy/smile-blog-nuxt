@@ -1,6 +1,7 @@
 import marked from 'marked'
 import highlight from './highlight'
 import Config from '../config'
+import DOMPurify from 'dompurify'
 
 const languages = [
   'cpp',
@@ -85,5 +86,6 @@ export default (content) => {
   if (typeof content !== 'string') {
     return ''
   }
-  return marked(content, { renderer })
+  const html = marked(content, { renderer })
+  return DOMPurify.sanitize(html)
 }
