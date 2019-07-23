@@ -40,7 +40,6 @@ export default {
   }
 
   .title {
-    font-size: $font-size-large;
     cursor: pointer;
   }
 
