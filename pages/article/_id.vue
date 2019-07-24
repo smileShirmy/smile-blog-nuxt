@@ -324,7 +324,7 @@ export default {
   @include container;
   position: relative;
   margin-top: -10vh;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
 
   @media (max-width: 479px) {
     margin-top: 0;
@@ -332,7 +332,7 @@ export default {
 
   .content {
     @include articlePadding;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     background-color: var(--app-background-color-light);
     // box-shadow: 0 2px 24px 5px rgba(0, 0, 0, .05);
     transition: $theme-transition;
@@ -354,6 +354,7 @@ export default {
 
 .comment-container {
   margin-top: 0;
+  border-radius: 0 0 5px 5px;
 
   .content {
     padding-top: 5px;

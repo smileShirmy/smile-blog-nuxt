@@ -77,17 +77,17 @@
 }
 
 @mixin articlePadding {
-  padding: 60px 200px 0;
+  padding: 60px 200px 5px;
 
   @media (max-width: 1399px) {
-    padding: 40px 100px 0;
+    padding: 40px 100px 5px;
   }
 
   @media (max-width: 1023px) {
-    padding: 30px 50px 0;
+    padding: 30px 50px 5px;
   }
 
   @media (max-width: 479px) {
-    padding: 10px 0 0;
+    padding: 10px 0 5px;
   }
 }
