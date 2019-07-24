@@ -31,6 +31,22 @@ module.exports = {
         async: 'async',
         type: 'text/javascript',
         src: 'https://resource.shirmy.me/intersection-polyfill.js'
+      },
+      {
+        async: 'async',
+        type: 'text/javascript',
+        src: 'https://www.googletagmanager.com/gtag/js?id=UA-144196694-1'
+      },
+      {
+        // Global site tag (gtag.js) - Google Analytics
+        type: 'text/javascript',
+        innerHTML: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-144196694-1');
+        `
       }
     ],
     noscript: [
@@ -90,7 +106,6 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
-    '@nuxtjs/google-analytics',
     '@nuxtjs/pwa',
     '@nuxtjs/style-resources',
     [
@@ -101,10 +116,6 @@ module.exports = {
       }
     ],
   ],
-
-  googleAnalytics: {
-    id: 'UA-144196694-X'
-  },
 
   styleResources: {
     scss: ['./assets/scss/variables.scss', './assets/scss/mixin.scss']
