@@ -86,6 +86,9 @@ export default (content) => {
   if (typeof content !== 'string') {
     return ''
   }
-  const html = marked(content, { renderer })
-  return DOMPurify.sanitize(html)
+  let html = marked(content, { renderer })
+  if (DOMPurify.sanitize) {
+    html = DOMPurify.sanitize(html)
+  }
+  return html
 }
