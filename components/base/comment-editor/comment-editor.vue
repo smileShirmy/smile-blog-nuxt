@@ -169,6 +169,7 @@ export default {
     },
 
     send() {
+      this.contentChange()
       const inValidMsg = this.getInValidMsg()
       if (inValidMsg) {
         alert(inValidMsg)
