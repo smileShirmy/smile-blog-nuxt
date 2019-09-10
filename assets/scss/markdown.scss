@@ -145,6 +145,10 @@ pre {
   .hljs-attribute {
     color: #e96900;
   }
+  .hljs-name, .hljs-tag {
+    color: #ff79c6;
+    font-weight: 400;
+  }
   .hljs-number,
   .hljs-literal {
     color: #AE81FF;
@@ -208,7 +212,7 @@ pre {
   .hljs-shebang,
   .hljs-apache .hljs-sqbracket,
   .hljs-tex .hljs-formula {
-    color: #b3b3b3;
+    color: #939393;
   }
   .hljs-coffeescript .hljs-javascript,
   .hljs-javascript .hljs-xml,
