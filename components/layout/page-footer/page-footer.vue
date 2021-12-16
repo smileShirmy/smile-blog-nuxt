@@ -22,7 +22,7 @@
     </div>
     <div class="footer-copyright">
       <span class="copyright">© 2019 <span class="logo">Smile</span></span>. All Right Reserved.
-      <div class="record-number">粤ICP备17101737号-1</div>
+      <a class="record-number" target="_blank" href="https://beian.miit.gov.cn/">粤ICP备17101737号-1</a>
     </div>
   </footer>
 </template>
@@ -155,6 +155,12 @@ export default {
 }
 
 .record-number {
+  display: block;
   margin-top: 10px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline
+  }
 };
 </style>
