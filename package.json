@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/component-cache": "^1.1.5",
-    "@nuxtjs/pwa": "^3.0.0-beta.16",
+    "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/style-resources": "^0.1.2",
     "axios": "^0.19.0",
     "cross-env": "^5.2.0",
